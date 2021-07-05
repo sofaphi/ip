@@ -1,0 +1,19 @@
+{% extends 'base-generation.html' %} {% load static %} 
+
+{% block title %} <title>Главная</title> {% endblock %}
+
+{% block content %}
+
+<section class="landing-section" style="background-image: url({% static 'images/index-bg-left.png' %}),
+url({% static 'images/index-bg-right.png' %});">
+    <h1 class="landing-section__title">Твое портфолио</h1>
+
+    <p class="landing-section__text">Порфтолио - это презентация выших работ, проектов и достижений</p>
+
+    <p class="landing-section__text landing-section__text_tagline">Загрузи и не грузись</p>
+
+    <a href="#" class="landing-section__link">Просмотреть Галерею</a>
+</section>
+
+{% endblock %}
+

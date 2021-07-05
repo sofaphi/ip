@@ -1,0 +1,287 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+$green: #28c23e;
+
+@mixin button-link {
+    font-size: 24px;
+    padding: 12px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background-color: $green;
+    color: #fff;
+    transition: 200ms;
+
+    &:hover {
+        background-color: transparent;
+        color: $green;
+    }
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+    padding-top: 140px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10vw;
+    width: 100vw;
+    height: 140px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.5);
+    z-index: 100;
+
+    &__menu {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__item {
+        margin: 0 15px;
+
+        &.current {
+            a {
+                border-bottom: 5px solid $green;
+            }
+        }
+
+        a {
+            font-size: 24px;
+            padding: 12px 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #000;
+            transition: 200ms;
+
+            &:hover {
+                border-bottom: 5px solid $green;
+            }
+        }
+    }
+}
+
+.landing-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 200px 0 150px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    background-repeat: no-repeat;
+    background-position: left center, right center;
+
+    &__title {
+        font-size: 48px;
+        letter-spacing: 2px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        margin-top: 30px;
+        font-size: 26px;
+        font-weight: 300;
+        line-height: 31.6px;
+        max-width: 35ch;
+
+        &_tagline {
+            margin-top: 70px;
+        }
+    }
+
+    &__link {
+        @include button-link();
+
+        margin-top: 50px;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 10vw 100px 10vw;
+
+    &__title {
+        margin-bottom: 34px;
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    &__menu {
+        padding-left: 12px;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+
+        a {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 300;
+            color: #000;
+            text-decoration: none;
+            transition: 200ms;
+
+            &:hover {
+                color: $green;
+            }
+        }
+
+        &_icon {
+            display: inline-block;
+            margin: 0 10px;
+
+            svg {
+                width: 40px;
+                height: 40px;
+                transition: 200ms;
+            }
+
+            &:hover {
+                svg {
+                    fill: $green;
+                }
+            }
+        }
+    }
+}
