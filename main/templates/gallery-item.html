@@ -1,0 +1,26 @@
+{% extends 'base-generation.html' %} {% load static %}
+
+{% block title %}
+<title>{{item.title}}</title>
+{% endblock %}
+
+{% block content %}
+<section class="achievement">
+    <img src="{{item.preview.url}}" alt="image" class="achievement__preview">
+    <div class="achievement__text-block">
+        <h2 class="achievement__title">{{item.title}}</h2>
+        <p class="achievement__description">{{item.description}}</p>
+
+        {% if item.date %}
+        <p class="achievement__description achievement__description_date">{{item.date}}</p>
+        {% elif item.dateStart and item.dateEnd %}
+        <p class="achievement__description achievement__description_date">с {{item.dateStart}}</p>
+        <p class="achievement__description achievement__description_date">по {{item.dateEnd}}</p>
+        {% endif %}
+        <div class="achievement__links-wrap">
+            <a href="#" class="achievement__link">Изменить</a>
+            <a href="#" class="achievement__link">Удалить</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

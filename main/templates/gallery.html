@@ -1,0 +1,36 @@
+{% extends 'base-generation.html' %} {% load static %}
+
+{% block title %}
+<title>Галерея</title>
+{% endblock %}
+
+{% block content %}
+<h1 class="gallery-title">Галерея достижений</h1>
+
+<nav class="gallery-nav">
+    <ul class="gallery-nav__list">
+        <li class="gallery-nav__item {% if request.GET.type == 'certificate' %}current{% endif %}"><a href="?type=certificate">Сертификаты</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'tourtaiment' %}current{% endif %}"><a href="?type=tourtaiment">Соревнования</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'work' %}current{% endif %}"><a href="?type=work">Стаж</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'project' %}current{% endif %}"><a href="?type=project">Проекты</a></li>
+        <li class="gallery-nav__item"><a href="">Пусто</a></li>
+        <li class="gallery-nav__item"><a href="">Пусто</a></li>
+    </ul>
+</nav>
+
+<ul class="achievements">
+    {% for achievement in achievementsList %}
+    <li class="achievements__item">
+        <a href="{% url 'gallery-item' pk=achievement.pk %}?type={{request.GET.type}}" class="achievements__link">
+            <img src="{{achievement.preview.url}}" alt="" class="achievements__img">
+
+            <p class="achievements__text">{{achievement.title}}</p>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="achievements__add-link-wrap">
+    <a href="#" class="achievements__add-link">Добавить</a>
+</div>
+{% endblock %}
