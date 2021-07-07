@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.Index.as_view(), name='index'),
     path('gallery/', views.Gallery.as_view(), name='gallery'),
     path('gallery/<pk>/', views.AchievementItem.as_view(), name='gallery-item'),
+    path('achievement-create/', views.AchievementCreate.as_view(), name='achievement-create'),
 ]

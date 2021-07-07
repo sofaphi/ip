@@ -269,14 +269,8 @@ body {
   fill: #28c23e;
 }
 
-.gallery-title {
-  font-size: 48px;
-  text-transform: uppercase;
-  font-weight: 500;
-  text-align: center;
-}
-
 .gallery-nav {
+  position: relative;
   margin: 50px 0;
   border-radius: 10px;
   box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
@@ -288,12 +282,15 @@ body {
 }
 .gallery-nav__item {
   flex-grow: 1;
-  padding: 10px 0;
   text-align: center;
   background-color: #fff;
   transition: 200ms;
 }
 .gallery-nav__item a {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 20px;
@@ -317,27 +314,36 @@ body {
 .gallery-nav__item:hover a, .gallery-nav__item.current a {
   color: #fff;
 }
+.gallery-nav__text {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.4);
+}
 
-.achievements {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.achievements__item {
+.gallery__item {
   box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.13);
-  flex-grow: 1;
+  flex-grow: 0;
   margin-top: 80px;
+  width: 100%;
   max-width: calc(50% - 80px);
 }
-.achievements__item:nth-child(2n) {
+.gallery__item:nth-child(2n) {
   margin-left: 80px;
 }
-.achievements__link {
+.gallery__link {
   position: relative;
   display: block;
   text-decoration: none;
 }
-.achievements__text {
+.gallery__text {
   position: absolute;
   top: 0;
   left: 0;
@@ -354,18 +360,19 @@ body {
   transition: 200ms;
   text-align: center;
 }
-.achievements__text:hover {
+.gallery__text:hover {
   opacity: 1;
 }
-.achievements__img {
+.gallery__img {
   display: block;
   width: 100%;
+  height: 100%;
 }
-.achievements__add-link-wrap {
+.gallery__add-link-wrap {
   padding: 50px 0;
   text-align: center;
 }
-.achievements__add-link {
+.gallery__add-link {
   font-size: 24px;
   padding: 12px 15px;
   text-decoration: none;
@@ -377,9 +384,15 @@ body {
   display: inline-block;
   margin: 0 auto;
 }
-.achievements__add-link:hover {
+.gallery__add-link:hover {
   background-color: transparent;
   color: #28c23e;
+}
+.gallery__title {
+  font-size: 48px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
 }
 
 .achievement {
@@ -421,6 +434,104 @@ body {
   display: inline-block;
 }
 .achievement__link:hover {
+  background-color: transparent;
+  color: #28c23e;
+}
+.achievement__link:first-child {
+  margin-right: 30px;
+}
+
+.achievement-form {
+  margin-top: 150px;
+}
+.achievement-form__title {
+  max-width: 25ch;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 61.9px;
+}
+.achievement-form__text {
+  margin-top: 100px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: #28c23e;
+}
+.achievement-form__input-block {
+  margin-top: 80px;
+}
+.achievement-form__input-block_preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+.achievement-form__input-block_preview .achievement-form__label {
+  display: inline-block;
+  color: #28c23e;
+  font-size: 30px;
+  text-transform: lowercase;
+  transition: 200ms;
+}
+.achievement-form__input-block_preview .achievement-form__label:hover {
+  color: rgba(40, 194, 62, 0.6);
+  cursor: pointer;
+}
+.achievement-form__input-block_preview .achievement-form__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.achievement-form__input-description {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.achievement-form__label {
+  display: block;
+  font-size: 32px;
+}
+.achievement-form__input {
+  padding: 25px 0 25px 80px;
+  margin-top: 65px;
+  box-sizing: border-box;
+  width: 570px;
+  background-color: #F3F3F3;
+  border: 0;
+  transition: 200ms;
+}
+.achievement-form__input::-moz-placeholder {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.achievement-form__input:-ms-input-placeholder {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.achievement-form__input, .achievement-form__input::placeholder {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.achievement-form__input:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.achievement-form__submit-wrap {
+  text-align: center;
+}
+.achievement-form__submit {
+  font-size: 24px;
+  padding: 12px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #28c23e;
+  color: #fff;
+  transition: 200ms;
+  border: 0;
+  margin-top: 150px;
+  cursor: pointer;
+}
+.achievement-form__submit:hover {
   background-color: transparent;
   color: #28c23e;
 }/*# sourceMappingURL=style.css.map */

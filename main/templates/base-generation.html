@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     {% block title %}
     <title>Base generation</title>{% endblock %}
@@ -24,7 +24,7 @@
                 <ul class="header__menu">
                     <li class="header__item {% if request.path == '/' %}current{% endif %}"><a
                             href="{% url 'index' %}">Главная</a></li>
-                    <li class="header__item"><a href="">Добавить Достижение</a></li>
+                    <li class="header__item {% if '/achievement-create/' in request.path %}current{% endif %}"><a href="{% url 'achievement-create' %}?type=certificate">Добавить Достижение</a></li>
                     <li class="header__item {% if '/gallery/' in request.path %}current{% endif %}"><a
                             href="{% url 'gallery' %}?type=certificate">Галерея</a></li>
                 </ul>

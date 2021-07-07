@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="gallery-title">Галерея достижений</h1>
+<h1 class="gallery__title">Галерея достижений</h1>
 
 <nav class="gallery-nav">
     <ul class="gallery-nav__list">
@@ -18,19 +18,19 @@
     </ul>
 </nav>
 
-<ul class="achievements">
+<ul class="gallery">
     {% for achievement in achievementsList %}
-    <li class="achievements__item">
-        <a href="{% url 'gallery-item' pk=achievement.pk %}?type={{request.GET.type}}" class="achievements__link">
-            <img src="{{achievement.preview.url}}" alt="" class="achievements__img">
+    <li class="gallery__item">
+        <a href="{% url 'gallery-item' pk=achievement.pk %}?type={{request.GET.type}}" class="gallery__link">
+            <img src="{{achievement.preview.url}}" alt="" class="gallery__img">
 
-            <p class="achievements__text">{{achievement.title}}</p>
+            <p class="gallery__text">{{achievement.title}}</p>
         </a>
     </li>
     {% endfor %}
 </ul>
 
-<div class="achievements__add-link-wrap">
-    <a href="#" class="achievements__add-link">Добавить</a>
+<div class="gallery__add-link-wrap">
+    <a href="{% url 'achievement-create' %}?type={{request.GET.type}}" class="gallery__add-link">Добавить</a>
 </div>
 {% endblock %}
