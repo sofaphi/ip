@@ -5,6 +5,48 @@
 {% endblock %}
 
 {% block content %}
+{% if item %}
+<h1 class="achievement-form__title">Изменение Достижения ({{item.title}})</h1>
+<p class="achievement-form__text">Введите новую информацию</p>
+<form class="achievement-form" method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <div class="achievement-form__input-block">
+        <label for="title" class="achievement-form__label">Название достижения</label>
+        <input name="title" class="achievement-form__input" type="text" id="title" placeholder="название" value="{{item.title}}" required>
+    </div>
+
+    <div class="achievement-form__input-block">
+        <label for="description" class="achievement-form__label">Описание достижения</label>
+        <input name="description" class="achievement-form__input" type="text" id="description" value="{{item.description}}" placeholder="описание" required>
+    </div>
+
+    {% if request.GET.type == 'work' or request.GET.type == 'project' or request.GET.type == 'course' %}
+    <div class="achievement-form__input-block">
+        <label for="dateStart" class="achievement-form__label">Укажите дату начала</label>
+        <input name="dateStart" class="achievement-form__input" type="date" id="dateStart" value="{{item.dateStart}}" placeholder="описание" required>
+    </div>
+
+    <div class="achievement-form__input-block">
+        <label for="dateEnd" class="achievement-form__label">Укажите дату окончания</label>
+        <input name="dateEnd" class="achievement-form__input" type="date" id="dateEnd" value="{{item.dateEnd}}" placeholder="описание" required>
+    </div>
+    {% else %}
+    <div class="achievement-form__input-block">
+        <label for="date" class="achievement-form__label">Укажите дату</label>
+        <input name="date" class="achievement-form__input" type="date" id="date" value="{{item.date}}" placeholder="описание" required>
+    </div>
+    {% endif %}
+
+    <div class="achievement-form__input-block achievement-form__input-block_preview">
+        <label for="preview" class="achievement-form__label">Прикрепить новое фото</label>
+        <input name="preview" class="achievement-form__input" type="file" value="{{item.preview}}" id="preview" required>
+        <p class="achievement-form__input-description">это фото будет отображаться в галерее</p>
+    </div>
+    <div class="achievement-form__submit-wrap">
+        <input type="submit" class="achievement-form__submit" value="Добавить">
+    </div>
+</form>
+{% else %}
 <nav class="gallery-nav gallery-nav_form">
     <p class="gallery-nav__text">Какой тип достижения добавить</p>
     <ul class="gallery-nav__list">
@@ -12,11 +54,11 @@
         <li class="gallery-nav__item {% if request.GET.type == 'tourtaiment' %}current{% endif %}"><a href="?type=tourtaiment">Соревнование</a></li>
         <li class="gallery-nav__item {% if request.GET.type == 'work' %}current{% endif %}"><a href="?type=work">Стаж</a></li>
         <li class="gallery-nav__item {% if request.GET.type == 'project' %}current{% endif %}"><a href="?type=project">Проект</a></li>
-        <li class="gallery-nav__item"><a href="">Пусто</a></li>
-        <li class="gallery-nav__item"><a href="">Пусто</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'hackaton' %}current{% endif %}"><a href="?type=hackaton">Хакатон</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'course' %}current{% endif %}"><a href="?type=course">Курс</a></li>
     </ul>
 </nav>
-<h1 class="achievement-form__title">Добавление/Изменение Достижения</h1>
+<h1 class="achievement-form__title">Добавление Достижения</h1>
 
 {% if request.GET.type != '' and request.GET.type %}
 <p class="achievement-form__text">Введите информацию</p>
@@ -32,7 +74,7 @@
         <input name="description" class="achievement-form__input" type="text" id="description" placeholder="описание" required>
     </div>
 
-    {% if request.GET.type == 'work' or request.GET.type == 'project' %}
+    {% if request.GET.type == 'work' or request.GET.type == 'project' or request.GET.type == 'course' %}
     <div class="achievement-form__input-block">
         <label for="dateStart" class="achievement-form__label">Укажите дату начала</label>
         <input name="dateStart" class="achievement-form__input" type="date" id="dateStart" placeholder="описание" required>
@@ -58,5 +100,6 @@
         <input type="submit" class="achievement-form__submit" value="Добавить">
     </div>
 </form>
+{% endif %}
 {% endif %}
 {% endblock %}

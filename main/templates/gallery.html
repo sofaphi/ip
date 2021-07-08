@@ -13,11 +13,13 @@
         <li class="gallery-nav__item {% if request.GET.type == 'tourtaiment' %}current{% endif %}"><a href="?type=tourtaiment">Соревнования</a></li>
         <li class="gallery-nav__item {% if request.GET.type == 'work' %}current{% endif %}"><a href="?type=work">Стаж</a></li>
         <li class="gallery-nav__item {% if request.GET.type == 'project' %}current{% endif %}"><a href="?type=project">Проекты</a></li>
-        <li class="gallery-nav__item"><a href="">Пусто</a></li>
-        <li class="gallery-nav__item"><a href="">Пусто</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'hackaton' %}current{% endif %}"><a href="?type=hackaton">Хакатоны</a></li>
+        <li class="gallery-nav__item {% if request.GET.type == 'course' %}current{% endif %}"><a href="?type=course">Курсы</a></li>
     </ul>
 </nav>
-
+<div class="gallery__count">
+    Достижений в этой категории: {{achievementsListCount}}
+</div>
 <ul class="gallery">
     {% for achievement in achievementsList %}
     <li class="gallery__item">

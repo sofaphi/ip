@@ -29,5 +29,17 @@ class Tourtaiment(models.Model):
     title = models.CharField(max_length=50, default='Тут должно быть название')
     description = models.TextField(default='Тут должно быть описание')
     date = models.DateField(default=datetime.now())
-    place = models.PositiveSmallIntegerField(default=1)
+    preview = models.ImageField()
+
+class Hackaton(models.Model):
+    title = models.CharField(max_length=50, default='Тут должно быть название')
+    description = models.TextField(default='Тут должно быть описание')
+    date = models.DateField(default=datetime.now())
+    preview = models.ImageField()
+
+class Course(models.Model):
+    title = models.CharField(max_length=50, default='Тут должно быть название')
+    description = models.TextField(default='Тут должно быть описание')
+    dateStart = models.DateField(default=datetime.now())
+    dateEnd = models.DateField(default=datetime.now())
     preview = models.ImageField()

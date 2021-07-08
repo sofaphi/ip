@@ -18,8 +18,8 @@
         <p class="achievement__description achievement__description_date">по {{item.dateEnd}}</p>
         {% endif %}
         <div class="achievement__links-wrap">
-            <a href="#" class="achievement__link">Изменить</a>
-            <a href="#" class="achievement__link">Удалить</a>
+            <a href="{% url 'achievement-change' pk=item.pk %}?type={{request.GET.type}}" class="achievement__link">Изменить</a>
+            <a href="{% url 'achievement-delete' pk=item.pk %}?type={{request.GET.type}}" class="achievement__link">Удалить</a>
         </div>
     </div>
 </section>
